@@ -1,0 +1,22 @@
+{
+    "name": "kushal/module-test",
+    "description": "",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "email": "kushaljindal92@gmail.com",
+            "name": "Kushal Jindal"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Kushal\\Test\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}
