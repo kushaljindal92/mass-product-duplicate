@@ -80,8 +80,9 @@ class Duplicate
         $productArray = $productCollection->getData();
         foreach($productArray as $product){
             $productObject = $this->product->load($product['entity_id']);
+            $productClone = clone $productObject;
             $productUsed = $this->modifyProduct(self::CONDITION_NEW,self::CONDITION_USED,$productObject,$attributeValue[self::CONDITION_USED]);
-            $productRefurbished = $this->modifyProduct(self::CONDITION_USED,self::CONDITION_REFURBISHED,$productObject,$attributeValue[self::CONDITION_REFURBISHED]);
+            $productRefurbished = $this->modifyProduct(self::CONDITION_NEW,self::CONDITION_REFURBISHED,$productClone,$attributeValue[self::CONDITION_REFURBISHED]);
             //exception handling and logging of data
             try{
                 $usedProduct = $this->copier->copy($productUsed);
