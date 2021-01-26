@@ -77,7 +77,7 @@ class Duplicate
         $productCollection = $this->collectionFactory->create();
         $productCollection->addAttributeToSelect('*');
         $productCollection->addAttributeToFilter('condition',$attributeValue[self::CONDITION_NEW]);
-        $productCollection->addAttributeToFilter('duplicate',0);
+        $productCollection->addAttributeToFilter('duplicated',0);
         $productArray = $productCollection->getData();
         foreach($productArray as $product){
             $productObject = $this->product->load($product['entity_id']);
@@ -90,7 +90,7 @@ class Duplicate
                 $this->logger->info('product with sku '.$usedProduct->getSku().' has been created');
                 $refurbishedProduct =$this->copier->copy($productRefurbished);
                 $this->logger->info('product with sku '.$refurbishedProduct->getSku().' has been created');
-                $productObject->setDuplicate(1)->save();
+                $productObject->setDuplicated(1)->save();
             } catch(Exception $e){
                 $this->logger->exception($e->getMessage());
             }
