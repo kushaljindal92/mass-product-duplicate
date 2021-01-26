@@ -61,7 +61,7 @@ class AddDuplicatedProductAttribute implements DataPatchInterface, PatchRevertab
                 'backend' => '',
                 'sort_order' => '30',
                 'global' => ScopedAttributeInterface::SCOPE_STORE,
-                'default' => null,
+                'default' => 0,
                 'visible' => true,
                 'user_defined' => true,
                 'searchable' => false,
